@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Celebration Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .gallery img { width: 150px; height: auto; margin: 10px; }
+        .confetti { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+    </style>
+    <script>
+        // Simple confetti effect
+        function createConfetti() {
+            const confettiContainer = document.createElement('div');
+            confettiContainer.classList.add('confetti');
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.width = Math.random() * 10 + 'px';
+                confetti.style.height = Math.random() * 10 + 'px';
+                confetti.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                confetti.style.position = 'absolute';
+                confetti.style.top = Math.random() * 100 + '%';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.opacity = Math.random();
+                document.body.appendChild(confetti);
+            }
+        }
+        window.onload = createConfetti;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Happy Birthday!</h1>
+        <img src="candle.png" alt="A birthday candle" aria-role="img">
+    </header>
+    <main>
+        <section>
+            <h2>Birthday Wishes</h2>
+            <p>Wishing you a day filled with love and happiness!</p>
+        </section>
+        <section>
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <img src="image1.jpg" alt="Celebration image 1">
+                <img src="image2.jpg" alt="Celebration image 2">
+                <img src="image3.jpg" alt="Celebration image 3">
+            </div>
+        </section>
+        <section>
+            <h2>Guestbook</h2>
+            <form>
+                <label for="guest-name">Your Name:</label>
+                <input type="text" id="guest-name" name="guest-name" required>
+                <label for="guest-message">Your Message:</label>
+                <textarea id="guest-message" name="guest-message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Birthday Celebrations</p>
+    </footer>
+</body>
+</html>
